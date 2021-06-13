@@ -62,10 +62,10 @@ contract MasterChefV2 is Ownable, ReentrancyGuard {
 
     // Minimum emission rate: 0.1 SHUTTLE per block.
     uint256 public constant MINIMUM_EMISSION_RATE = 100 finney;
-    // Reduce emission every 9,600 blocks ~ 8 hours.
-    uint256 public constant EMISSION_REDUCTION_PERIOD_BLOCKS = 9600;
-    // Emission reduction rate per period in basis points: 3%.
-    uint256 public constant EMISSION_REDUCTION_RATE_PER_PERIOD = 300;
+    // Suppose BSC block time is 3 sec, then 3 sec x 15000 block ~ 13 hours
+    uint256 public constant EMISSION_REDUCTION_PERIOD_BLOCKS = 15000;
+    // Emission reduction rate should rise proportionally with emission reduction rate
+    uint256 public constant EMISSION_REDUCTION_RATE_PER_PERIOD = 500; // 5%
     // Last reduction period index
     uint256 public lastReductionPeriodIndex = 0;
 
