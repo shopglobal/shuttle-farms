@@ -85,7 +85,7 @@ contract MasterChefV2 is Ownable, ReentrancyGuard {
     event EmergencyWithdraw(address indexed user, uint256 indexed pid, uint256 amount);
     event SetFeeAddress(address indexed user, address indexed newAddress);
     event SetDevAddress(address indexed user, address indexed newAddress);
-    event UpdateCustomEmissionRate(address indexed user, uint256 goosePerBlock);
+    event UpdateCustomEmissionRate(address indexed user, uint256 shuttlePerBlock);
     event UpdateEmissionRate(address indexed caller, uint256 previousAmount, uint256 newAmount);
 
     constructor(
