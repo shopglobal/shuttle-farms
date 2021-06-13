@@ -23,3 +23,4 @@ https://marscrater.com - Home of Crater and Shuttle
 ## TODO
 
 - fix custom emission
+- fix warnings 
