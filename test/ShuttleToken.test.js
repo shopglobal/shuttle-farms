@@ -9,7 +9,7 @@ contract('ShuttleToken', ([alice, bob, carol, dev, minter]) => {
 
 
     it('mint', async () => {
-        await this.cake.mint(alice, 1000, { from: minter });
+        await this.shuttle.mint(alice, 1000, { from: minter });
         assert.equal((await this.shuttle.balanceOf(alice)).toString(), '1000');
     })
 });
