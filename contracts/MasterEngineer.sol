@@ -85,7 +85,8 @@ contract MasterChefV2 is Ownable, ReentrancyGuard {
     event EmergencyWithdraw(address indexed user, uint256 indexed pid, uint256 amount);
     event SetFeeAddress(address indexed user, address indexed newAddress);
     event SetDevAddress(address indexed user, address indexed newAddress);
-    event UpdateEmissionRate(address indexed user, uint256 goosePerBlock);
+    event UpdateCustomEmissionRate(address indexed user, uint256 goosePerBlock);
+    event UpdateEmissionRate(address indexed caller, uint256 previousAmount, uint256 newAmount);
 
     constructor(
         ShuttleToken _shuttle,
@@ -289,14 +290,14 @@ contract MasterChefV2 is Ownable, ReentrancyGuard {
         lastReductionPeriodIndex = currentIndex;
         uint256 previousEmissionRate = shuttlePerBlock;
         shuttlePerBlock = newEmissionRate;
-        emit EmissionRateUpdated(msg.sender, previousEmissionRate, newEmissionRate);
+        emit UpdateEmissionRate(msg.sender, previousEmissionRate, newEmissionRate);
     }
 
       //Pancake has to add hidden dummy pools inorder to alter the emission, here we make it simple and transparent to all.
     function updateCustomEmissionRate(uint256 _shuttlePerBlock) public onlyOwner {
         massUpdatePools();
         shuttlePerBlock = _shuttlePerBlock;
-        emit UpdateEmissionRate(msg.sender, _shuttlePerBlock);
+        emit UpdateCustomEmissionRate(msg.sender, _shuttlePerBlock);
     }
 
 }
