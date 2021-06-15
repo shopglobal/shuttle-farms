@@ -266,7 +266,6 @@ contract MasterEngineer is Ownable, ReentrancyGuard {
         emit SetFeeAddress(msg.sender, _feeAddress);
     }
 
-    // Reduce emission rate by 3% every 9,600 blocks ~ 8hours. This function can be called publicly.
     function updateEmissionRate() public {
         require(block.number > startBlock, "updateEmissionRate: Can only be called after mining starts");
         require(shuttlePerBlock > MINIMUM_EMISSION_RATE, "updateEmissionRate: Emission rate has reached the minimum threshold");
@@ -293,7 +292,7 @@ contract MasterEngineer is Ownable, ReentrancyGuard {
         emit UpdateEmissionRate(msg.sender, previousEmissionRate, newEmissionRate);
     }
 
-      //Pancake has to add hidden dummy pools inorder to alter the emission, here we make it simple and transparent to all.
+    //Pancake has to add hidden dummy pools inorder to alter the emission, here we make it simple and transparent to all.
     function updateCustomEmissionRate(uint256 _shuttlePerBlock) public onlyOwner {
         massUpdatePools();
         shuttlePerBlock = _shuttlePerBlock;
