@@ -11,20 +11,6 @@ https://marscrater.com - Home of Crater and Shuttle
 - Timelock - xxx
 - MultiCall - xxx
 
-*Note, this is a fork of GooseDefi MasterChefv2, removed lottery and tweaked contract.*  
-
-## Change Log:
-
-- removed deposit fee
-- added withdraw fee
-- lock withdraw fees on 2%
-- custom emission 
-
-## TODO
-
-- fix custom emission
-- fix`sip@0.1`
-
 ## `sip@0.1` -  Shuttle Improvement Proposal 0.1 
 
 This proposal includes changing the behavior of $HUTTLE token.
@@ -34,3 +20,7 @@ every transaction and distribution on holders as well, for even more passive inc
 
 *Note, It is in beta version and nothing is guaranteed, parameters are just placeholders
 nothing is tweaked yet*
+
+## `sip@0.2` - Shuttle Improvement Proposal 0.2
+
+Further description will be added later.
